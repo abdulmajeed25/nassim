@@ -21,9 +21,19 @@ const Header: React.FC = () => {
   return (
     <header className="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-extrabold text-cyan-600">
-          <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>تقنية النسيم</a>
-        </h1>
+        <div className="flex items-center">
+          <a href="#" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }} className="hover:opacity-80 transition-opacity duration-300">
+            <img 
+              src="/nasim/logo.svg" 
+              alt="تقنية النسيم" 
+              className="w-48 h-16 object-contain"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                console.error('Logo image not found. Please add logo.svg to the public folder.');
+              }}
+            />
+          </a>
+        </div>
         <nav className="hidden md:flex items-center gap-8 text-lg font-medium text-slate-700">
           {navLinks}
         </nav>

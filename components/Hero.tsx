@@ -7,9 +7,9 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative bg-cyan-600 text-white min-h-[60vh] md:min-h-[70vh] flex items-center justify-center text-center overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{ backgroundImage: "url('https://picsum.photos/1920/1080?random=1')" }}></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-cyan-700/60 to-cyan-800/90"></div>
+    <section id="hero" className="relative bg-gradient-to-br from-cyan-600 via-cyan-700 to-cyan-800 text-white min-h-[60vh] md:min-h-[70vh] flex items-center justify-center text-center overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: "url('/images/nasim-hero-bg.jpg')" }}></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-600/40 to-cyan-900/60"></div>
       <div className="relative z-10 p-6 flex flex-col items-center">
         <h2 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg mb-4">
           برودة تدوم... صيانة تثق بها

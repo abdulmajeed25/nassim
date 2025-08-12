@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import type { BookingData } from '../types.ts';
+import type { BookingData } from '../src/types';
 import { SERVICES } from '../constants.tsx';
 
 const BookingForm: React.FC = () => {
   const [formData, setFormData] = useState<BookingData>({
     name: '',
+    email: '',
     phone: '',
-    address: '',
     service: SERVICES[0]?.title || '',
     date: '',
+    time: '',
     notes: ''
   });
 
@@ -16,12 +17,12 @@ const BookingForm: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev: BookingData) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.address) {
+    if (!formData.name || !formData.phone || !formData.email) {
       setStatus('error');
       return;
     }
@@ -29,7 +30,7 @@ const BookingForm: React.FC = () => {
     // Simulate API call
     setTimeout(() => {
       setStatus('success');
-      setFormData({ name: '', phone: '', address: '', service: SERVICES[0]?.title || '', date: '', notes: '' });
+      setFormData({ name: '', email: '', phone: '', service: SERVICES[0]?.title || '', date: '', time: '', notes: '' });
       setTimeout(() => setStatus('idle'), 5000); // Reset form status after 5 seconds
     }, 2000);
   };
@@ -55,8 +56,8 @@ const BookingForm: React.FC = () => {
               </div>
             </div>
             <div>
-              <label htmlFor="address" className="block text-sm font-bold text-slate-700 mb-2">العنوان (الحي)</label>
-              <input type="text" id="address" name="address" value={formData.address} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg border-slate-300 focus:border-cyan-500 focus:ring-cyan-500 shadow-sm" placeholder="مثال: حي النسيم، الرياض" />
+              <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">البريد الإلكتروني</label>
+              <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 rounded-lg border-slate-300 focus:border-cyan-500 focus:ring-cyan-500 shadow-sm" placeholder="example@email.com" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -69,6 +70,13 @@ const BookingForm: React.FC = () => {
                 <label htmlFor="date" className="block text-sm font-bold text-slate-700 mb-2">التاريخ المفضل</label>
                 <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border-slate-300 focus:border-cyan-500 focus:ring-cyan-500 shadow-sm" />
               </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="time" className="block text-sm font-bold text-slate-700 mb-2">الوقت المفضل</label>
+                <input type="time" id="time" name="time" value={formData.time} onChange={handleChange} className="w-full px-4 py-3 rounded-lg border-slate-300 focus:border-cyan-500 focus:ring-cyan-500 shadow-sm" />
+              </div>
+              <div></div>
             </div>
             <div>
               <label htmlFor="notes" className="block text-sm font-bold text-slate-700 mb-2">ملاحظات إضافية (اختياري)</label>

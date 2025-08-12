@@ -1,6 +1,4 @@
-import React from 'react';
-import type { Service } from './types.ts';
-import { AirConditionerIcon, CleanIcon, WrenchIcon, GasCylinderIcon } from './components/icons/ServiceIcons.tsx';
+import type { Service } from './src/types';
 
 export const WHATSAPP_NUMBER = "+966501234567";
 export const PHONE_NUMBER = "+966501234567";
@@ -8,23 +6,31 @@ export const LANDLINE_NUMBER = "0112345678";
 
 export const SERVICES: Service[] = [
   {
-    icon: React.createElement(AirConditionerIcon),
+    id: 'maintenance',
+    icon: '🔧',
     title: 'صيانة دورية وشاملة',
-    description: 'فحص كامل لجميع أجزاء المكيف لضمان أفضل أداء وتجنب الأعطال المفاجئة.'
+    description: 'فحص كامل لجميع أجزاء المكيف لضمان أفضل أداء وتجنب الأعطال المفاجئة.',
+    price: '150 ريال'
   },
   {
-    icon: React.createElement(CleanIcon),
+    id: 'cleaning',
+    icon: '🧹',
     title: 'تنظيف عميق للوحدات',
-    description: 'تنظيف الفلاتر والمكونات الداخلية والخارجية لتحسين جودة الهواء وكفاءة التبريد.'
+    description: 'تنظيف الفلاتر والمكونات الداخلية والخارجية لتحسين جودة الهواء وكفاءة التبريد.',
+    price: '100 ريال'
   },
   {
-    icon: React.createElement(GasCylinderIcon),
+    id: 'gas-refill',
+    icon: '❄️',
     title: 'تعبئة غاز الفريون',
-    description: 'قياس وإعادة تعبئة غاز الفريون للوصول إلى مستوى التبريد المثالي.'
+    description: 'قياس وإعادة تعبئة غاز الفريون للوصول إلى مستوى التبريد المثالي.',
+    price: '200 ريال'
   },
   {
-    icon: React.createElement(WrenchIcon),
+    id: 'repair',
+    icon: '🛠️',
     title: 'إصلاح جميع الأعطال',
-    description: 'تشخيص دقيق وإصلاح احترافي لجميع المشاكل والأعطال في نظام التكييف.'
+    description: 'تشخيص دقيق وإصلاح احترافي لجميع المشاكل والأعطال في نظام التكييف.',
+    price: '300 ريال'
   }
 ];
