@@ -1,23 +1,24 @@
-<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0891b2" />
-      <stop offset="100%" stop-color="#0e7490" />
-    </linearGradient>
-    <linearGradient id="logoGradientLight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22d3ee" />
-      <stop offset="100%" stop-color="#06b6d4" />
+    <!-- Background Gradient (White to very light blue) -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0f9ff"/>
     </linearGradient>
   </defs>
-  <path d="M50 5 L93.3 30 V80 L50 105 L6.7 80 V30 Z" fill="url(#logoGradient)" transform="scale(0.9) translate(5, -5)" />
-  <g transform="translate(50, 50)" stroke="white" stroke-width="6" stroke-linecap="round">
-    <circle r="4" fill="white" stroke="none" />
-    <line x1="0" y1="-25" x2="0" y2="25" />
-    <line x1="-21.65" y1="-12.5" x2="21.65" y2="12.5" />
-    <line x1="-21.65" y1="12.5" x2="21.65" y2="-12.5" />
-    <path d="M-5 -20 L0 -25 L5 -20" fill="none" />
-    <path d="M-5 20 L0 25 L5 20" fill="none" />
-    <circle r="16" stroke="white" stroke-width="3" fill="none" opacity="0.6" />
+  
+  <!-- Background -->
+  <rect width="300" height="300" rx="40" fill="url(#bgGrad)" stroke="#06b6d4" stroke-width="4"/>
+  
+  <!-- Text Content -->
+  <g text-anchor="middle" font-family="Arial, sans-serif, 'Cairo'">
+    <!-- تقنية النسيم -->
+    <text x="150" y="110" font-size="50" font-weight="900" fill="#0891b2">تقنية النسيم</text>
+    
+    <!-- Taqnia Al-Naseem -->
+    <text x="150" y="165" font-size="28" font-weight="bold" fill="#64748b" letter-spacing="1">Taqnia Al-Naseem</text>
+    
+    <!-- للتبـريـد والتكيـيـف -->
+    <text x="150" y="225" font-size="34" font-weight="900" fill="#0f172a" letter-spacing="2">للتبـريـد والتكيـيـف</text>
   </g>
-  <path d="M-10 60 Q 20 40 50 80 T 110 60" stroke="url(#logoGradientLight)" stroke-width="4" fill="none" opacity="0.8" transform="translate(0, 10)" />
 </svg>
