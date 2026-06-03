@@ -1,24 +1,47 @@
-<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Background Gradient (White to very light blue) -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#f0f9ff"/>
+    <!-- Beautiful frosty gradients -->
+    <linearGradient id="nGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#06b6d4" />
     </linearGradient>
+    <linearGradient id="iceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" />
+      <stop offset="100%" stop-color="#7dd3fc" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
   </defs>
-  
-  <!-- Background -->
-  <rect width="300" height="300" rx="40" fill="url(#bgGrad)" stroke="#06b6d4" stroke-width="4"/>
-  
-  <!-- Text Content -->
-  <g text-anchor="middle" font-family="Arial, sans-serif, 'Cairo'">
-    <!-- تقنية النسيم -->
-    <text x="150" y="110" font-size="50" font-weight="900" fill="#0891b2">تقنية النسيم</text>
-    
-    <!-- Taqnia Al-Naseem -->
-    <text x="150" y="165" font-size="28" font-weight="bold" fill="#64748b" letter-spacing="1">Taqnia Al-Naseem</text>
-    
-    <!-- للتبـريـد والتكيـيـف -->
-    <text x="150" y="225" font-size="34" font-weight="900" fill="#0f172a" letter-spacing="2">للتبـريـد والتكيـيـف</text>
+
+  <!-- Hexagon border for premium look -->
+  <path d="M100 15 L175 58.3 V141.7 L100 185 L25 141.7 V58.3 Z" fill="none" stroke="url(#nGradient)" stroke-width="6" opacity="0.4" />
+
+  <!-- The majestic Capital N -->
+  <path d="M60 140 V60 L140 140 V60" fill="none" stroke="url(#nGradient)" stroke-width="26" stroke-linecap="round" stroke-linejoin="miter" filter="url(#glow)"/>
+
+  <!-- Frost / Snowflake Accents overlapping the N -->
+  <!-- Snowflake 1 (Top Left) -->
+  <g transform="translate(60, 60) scale(0.8)" stroke="url(#iceGradient)" stroke-width="4" stroke-linecap="round">
+    <line x1="-15" y1="-15" x2="15" y2="15" />
+    <line x1="-15" y1="15" x2="15" y2="-15" />
+    <line x1="0" y1="-20" x2="0" y2="20" />
+    <line x1="-20" y1="0" x2="20" y2="0" />
+    <circle cx="0" cy="0" r="3" fill="#ffffff" stroke="none" />
   </g>
+
+  <!-- Snowflake 2 (Bottom Right) -->
+  <g transform="translate(140, 140) scale(1.1)" stroke="#ffffff" stroke-width="3" stroke-linecap="round">
+    <line x1="-12" y1="-12" x2="12" y2="12" />
+    <line x1="-12" y1="12" x2="12" y2="-12" />
+    <line x1="0" y1="-16" x2="0" y2="16" />
+    <line x1="-16" y1="0" x2="16" y2="0" />
+    <circle cx="0" cy="0" r="4" fill="url(#iceGradient)" stroke="none" />
+  </g>
+
+  <!-- Small floating ice crystals -->
+  <circle cx="110" cy="70" r="5" fill="#bae6fd" />
+  <circle cx="85" cy="115" r="3" fill="#e0f2fe" />
+  <circle cx="145" cy="80" r="4" fill="#7dd3fc" />
 </svg>
