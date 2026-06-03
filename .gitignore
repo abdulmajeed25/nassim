@@ -1,56 +1,13 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-# Dependencies
-node_modules
-.pnp
-.pnp.js
-
-# Production builds
-dist
-dist-ssr
-build
-*.local
-
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# TypeScript
-*.tsbuildinfo
-
-# Testing
-coverage
-.nyc_output
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+node_modules/
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# OS generated files
-Thumbs.db
-ehthumbs.db
-
-# Temporary files
-*.tmp
-*.temp
-.cache
-
-# Error logs
-ts-errors*.txt
+debug.js
+debug.txt
+debug_out.txt
+generate_logo.js
+hide_logo.js
+apply_final_logo.js
+test_log.txt
+update_text.js
+scratch/
+*.zip
+logo_folder/

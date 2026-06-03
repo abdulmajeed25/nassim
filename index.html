@@ -1,43 +1,90 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>تقنية النسيم | صيانة مكيفات</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تقنية النسيم للتبريد والتكييف</title>
+
+  <!-- ======= Canonical URL ======= -->
+  <link rel="canonical" href="https://www.naseim.com/" />
+
+  <!-- ======= Favicon - أيقونة الموقع ======= -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- ======= SEO Meta Tags ======= -->
+  <meta name="description" content="تقنية النسيم للتبريد والتكييف - خدمات صيانة وتنظيف وتعبئة غاز المكيفات في القصيم. عمالة مختصة، قطع غيار أصلية، وضمان حقيقي." />
+  <meta name="keywords" content="تقنية النسيم, تبريد, تكييف, صيانة مكيفات, تنظيف مكيفات, القصيم, فريون, غاز التبريد" />
+  <meta name="author" content="تقنية النسيم" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ======= Open Graph (Facebook / WhatsApp) ======= -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.naseim.com/" />
+  <meta property="og:title" content="تقنية النسيم للتبريد والتكييف" />
+  <meta property="og:description" content="خدمات صيانة وتنظيف وتعبئة غاز المكيفات في القصيم. عمالة مختصة وضمان حقيقي." />
+  <meta property="og:image" content="https://www.naseim.com/og-image.jpg" />
+  <meta property="og:locale" content="ar_SA" />
+  <meta property="og:site_name" content="تقنية النسيم" />
+
+  <!-- ======= Twitter Card ======= -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="تقنية النسيم للتبريد والتكييف" />
+  <meta name="twitter:description" content="خدمات صيانة وتنظيف وتعبئة غاز المكيفات في القصيم." />
+  <meta name="twitter:image" content="https://www.naseim.com/og-image.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script>
     tailwind.config = {
-        theme: {
+      theme: {
         extend: {
-            fontFamily: {
+          fontFamily: {
             sans: ['Cairo', 'sans-serif'],
-            },
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'bounce-slow': 'bounce 3s infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
         },
-        }
-    }
-    </script>
-    <style>
-      body {
-        font-family: 'Cairo', sans-serif;
       }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
-    "react/": "https://esm.sh/react@^19.1.1/",
-    "react": "https://esm.sh/react@^19.1.1"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-v9.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BwZ0IibB.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    .cool-spin {
+      animation: spin 20s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  
+    @keyframes logospin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
+
 <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+  <div id="root"></div>
 </body>
+
 </html>
