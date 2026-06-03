@@ -18,7 +18,7 @@ The session started by deleting any local `nassim/`, `nassim-deploy-staging/`, a
 ## 1. Stack Summary
 
 - **Project type:** Pure static deployed snapshot. No `package.json`, no `vite.config.*`, no `next.config.*`, no `tsconfig.json`, no `src/`, no `node_modules/`. The pre-built React/Vite bundle at `assets/index-v9.js` is served as-is. The repo IS the deploy artifact.
-- **Tracked files at HEAD:** 25 (unchanged at start of session); 1 modified across this audit (`index.html`); no files added or deleted.
+- **Tracked files at HEAD:** started at 25; ended at 16 after the user approved deletion of 5 legacy bundles and 5 stale data JSON files. One existing file modified across this audit (`index.html`); one file added (`AUDIT_REPORT.md`); ten files deleted with explicit user approval (per mission rule #5).
 - **Live host (out-of-band info):** Hostinger / LiteSpeed / hPanel. `.htaccess` is honored natively; redirect logic verified live.
 - **SEO assets present:** `robots.txt`, `sitemap.xml`, `favicon.svg`, `og-image.jpg`, `technician_main.jpg`, `google602bc385b96202b6.html` (GSC verification), full OG + Twitter Card + canonical + meta robots + meta description + meta keywords + viewport + charset in `index.html`.
 - **SEO assets ADDED by this audit:** one `<script type="application/ld+json">` block (Organization + LocalBusiness + WebSite) and one `<noscript>` fallback block. Both inside `index.html`. Nothing else touched.
@@ -39,8 +39,8 @@ The session started by deleting any local `nassim/`, `nassim-deploy-staging/`, a
 | F-007 | English `alt` text | P2 | Bundle renders `alt="AC Maintenance"`, `alt="AC Technician"` on an Arabic page. | NO (bundle-only; rule #7) | ⏸ DEFERRED. |
 | F-008 | Mobile tap target | P3 | 1 control under 48 px at 320 px viewport. | NO (bundle-only; rule #7) | ⏸ DEFERRED. |
 | F-009 | `theme-color` meta | P3 | Missing. | NO (no canonical brand color extractable from HEAD; mission "report > modify" bias) | ⏸ DEFERRED. |
-| F-010 | Dead bundles | P3 | `assets/index-v{2,5,6,7,8}.js` — 5 files, ~5 MB, unreferenced by `index.html` (only `v9` is referenced). | NO (deletion needs explicit user approval; rule #5) | ⏸ DEFERRED. |
-| F-011 | Stale data files | P3 | `data/{settings,pages,menus,media,templates}.json` reference a different brand (`ac-maintenance.sa`, Riyadh address); bundle never fetches `/data/*.json` at runtime. | NO (deletion/edit of business-data needs user approval; rules #5, #6) | ⏸ DEFERRED. |
+| F-010 | Dead bundles | P3 | `assets/index-v{2,5,6,7,8}.js` — 5 files, ~5 MB, unreferenced by `index.html` (only `v9` is referenced). | YES (after user approval) | ✅ FIXED in `84a8adf`. |
+| F-011 | Stale data files | P3 | `data/{settings,pages,menus,media,templates}.json` reference a different brand (`ac-maintenance.sa`, Riyadh address); bundle never fetches `/data/*.json` at runtime. | YES (after user approval) | ✅ FIXED in `43e1df6`. |
 | F-012 | Multiple font requests | P3 | 3 separate `fonts.googleapis.com` URL imports. | NO (would mean editing existing tags, not just adding; rule scope) | ⏸ DEFERRED. |
 | F-013 | sitemap `<lastmod>` | INFO | `2026-06-03` is 1 day behind current HEAD `f48b965` (2026-06-04). Not invalid; `<lastmod>` reflects last content change — content didn't materially change. | Optional | Left as-is. |
 
@@ -108,8 +108,8 @@ Every value either copied verbatim from `index.html`'s existing `<title>`, `<met
 | **F-007** | Replace English `alt` text on the two `<img>` tags with Arabic equivalents. | Same — bundle source. |
 | **F-008** | Resize the one mobile tap target under 48 px. | Bundle source. |
 | **F-009** | Add `<meta name="theme-color">`. | Needs a canonical brand color decision (not derivable from HEAD). Once decided, one-line add inside `<head>`. |
-| **F-010** | Delete the 5 unreferenced legacy bundles (`assets/index-v{2,5,6,7,8}.js`, ~5 MB). | Verifiably unreferenced (only `index-v9.js` is referenced from `index.html`). One-line approval: "yes, delete the legacy bundles." |
-| **F-011** | Clean up `data/*.json`. Bundle never fetches them; file contents reference a different brand. | Decide: delete the directory, or repopulate with real Naseim data if there's future intent to drive the SPA from these JSON files. |
+| ~~**F-010**~~ | ~~Delete the 5 unreferenced legacy bundles~~ | ✅ DONE in `84a8adf`. |
+| ~~**F-011**~~ | ~~Clean up `data/*.json`~~ | ✅ DONE in `43e1df6` (deleted the directory). |
 | **F-012** | Combine the 3 separate `fonts.googleapis.com` URL imports into 1, or self-host. | Editing existing tags is outside this audit's ALLOWED EDITS. Trivial follow-up. |
 | **F-013** | Bump `sitemap.xml <lastmod>` if/when material content changes. | No action needed for this audit (content unchanged). |
 
@@ -118,7 +118,11 @@ Every value either copied verbatim from `index.html`'s existing `<title>`, `<met
 ## 6. Post-Deploy Checklist for Abdulmajeed
 
 1. **Take Hostinger backup BEFORE any change goes live.** hPanel → Files → Backups → create manual backup of `public_html` (or zip & download via File Manager).
-2. **Copy the modified `index.html` to `public_html/`.** The only file changed by this audit is `index.html`. Replace the live copy via hPanel File Manager (or SFTP — single file upload). All other files in `public_html` (assets, robots.txt, sitemap.xml, .htaccess, GSC verification, images) remain unchanged.
+2. **Apply the audit's three deploy-affecting changes to `public_html/`:**
+   - Upload the modified `index.html` (replaces the live copy).
+   - Delete `assets/index-v2.js`, `assets/index-v5.js`, `assets/index-v6.js`, `assets/index-v7.js`, `assets/index-v8.js` from `public_html/assets/` — they are no longer in the repo and are unreferenced; ~5 MB of dead deploy weight.
+   - Delete the `public_html/data/` directory (5 stale JSON files referring to an unrelated brand; bundle never reads them at runtime).
+   - All other files in `public_html/` (`assets/index-v9.js`, `assets/index-BwZ0IibB.css`, `.htaccess`, `robots.txt`, `sitemap.xml`, `favicon.svg`, `og-image.jpg`, `technician_main.jpg`, `uploads/`, GSC verification) remain unchanged.
 3. **Fill the 8 `TODO_VERIFY` placeholders** in the deployed `index.html` BEFORE submitting for rich-results validation. Either fill them locally first and upload, or edit in hPanel File Manager directly.
 4. **Submit the sitemap.** GSC → Sitemaps → submit `https://www.naseim.com/sitemap.xml`.
 5. **URL-Inspect `https://www.naseim.com/`** and request indexing. Confirm: Crawl allowed YES, Indexing allowed YES, user-declared canonical matches Google-selected canonical, and "View Crawled Page → HTML" shows the JSON-LD block.
