@@ -1,4 +1,43 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+const NAV = [
+  { href: "#services", label: "خدماتنا" },
+  { href: "#booking", label: "احجز الآن" },
+  { href: "#contact", label: "تواصل معنا" },
+];
+
 export default function Header() {
+  const [open, setOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      const t = e.target as Node;
+      if (
+        panelRef.current?.contains(t) ||
+        buttonRef.current?.contains(t)
+      ) {
+        return;
+      }
+      setOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header className="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center relative">
@@ -26,30 +65,25 @@ export default function Header() {
           </a>
         </div>
         <nav className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 items-center gap-8 text-lg font-medium text-slate-700">
-          <a
-            href="#services"
-            className="hover:text-cyan-500 transition-colors duration-300"
-          >
-            خدماتنا
-          </a>
-          <a
-            href="#booking"
-            className="hover:text-cyan-500 transition-colors duration-300"
-          >
-            احجز الآن
-          </a>
-          <a
-            href="#contact"
-            className="hover:text-cyan-500 transition-colors duration-300"
-          >
-            تواصل معنا
-          </a>
+          {NAV.map((n) => (
+            <a
+              key={n.href}
+              href={n.href}
+              className="hover:text-cyan-500 transition-colors duration-300"
+            >
+              {n.label}
+            </a>
+          ))}
         </nav>
         <div className="md:hidden">
           <button
+            ref={buttonRef}
             type="button"
+            onClick={() => setOpen((v) => !v)}
             aria-label="القائمة"
-            className="text-slate-700 focus:outline-none"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            className="text-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded"
           >
             <svg
               className="w-8 h-8"
@@ -59,15 +93,48 @@ export default function Header() {
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
+              {open ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              )}
             </svg>
           </button>
         </div>
+      </div>
+      <div
+        ref={panelRef}
+        id="mobile-nav"
+        className={`md:hidden overflow-hidden bg-slate-900 text-white transition-[max-height,opacity] duration-300 ease-out ${
+          open ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav
+          className="container mx-auto px-6 py-4 flex flex-col gap-2 text-lg font-medium"
+          aria-hidden={!open}
+        >
+          {NAV.map((n) => (
+            <a
+              key={n.href}
+              href={n.href}
+              onClick={() => setOpen(false)}
+              className="block px-3 py-3 rounded-lg hover:bg-slate-800 hover:text-cyan-500 transition-colors duration-200"
+              tabIndex={open ? 0 : -1}
+            >
+              {n.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </header>
   );
