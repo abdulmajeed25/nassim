@@ -9,7 +9,7 @@ export default function Header() {
           <span className="text-cyan-700 font-extrabold text-2xl">
             تقنية النسيم
           </span>
-          <span className="text-cyan-600 font-bold tracking-widest text-[10px] mt-0.5">
+          <span className="text-cyan-800 font-bold tracking-widest text-[10px] mt-0.5">
             TAQNIA AL-NASEEM
           </span>
           <span className="text-slate-500 text-xs mt-0.5">
