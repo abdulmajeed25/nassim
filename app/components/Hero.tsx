@@ -6,28 +6,10 @@ export default function Hero() {
       id="hero"
       className="relative bg-gradient-to-br from-cyan-700 via-cyan-800 to-cyan-900 text-white overflow-hidden"
     >
-      <picture className="absolute inset-0 opacity-15 pointer-events-none">
-        <source
-          media="(min-width: 768px)"
-          srcSet="/images/hero.avif"
-          type="image/avif"
-        />
-        <source
-          media="(min-width: 768px)"
-          srcSet="/images/hero.webp"
-          type="image/webp"
-        />
-        <img
-          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-          alt=""
-          aria-hidden="true"
-          width={960}
-          height={641}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </picture>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center md:bg-[url('/images/hero.webp')]"
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-cyan-700/40 to-cyan-900/70" />
       <div className="relative container mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
         <div className="text-center md:text-right">
