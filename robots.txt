@@ -1,9 +1,0 @@
-# robots.txt - تقنية النسيم
-User-agent: *
-Allow: /
-Allow: /favicon.svg
-Allow: /og-image.jpg
-Allow: /assets/
-
-# Sitemap
-Sitemap: https://www.naseim.com/sitemap.xml
