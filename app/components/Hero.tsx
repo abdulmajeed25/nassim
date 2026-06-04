@@ -8,13 +8,15 @@ export default function Hero() {
     >
       <div className="absolute inset-0 opacity-15">
         <Image
-          src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop"
+          src="/images/hero.webp"
           alt="صيانة وتكييف"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover"
-          unoptimized
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAALABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQQG/8QAIxAAAgEDAgcBAAAAAAAAAAAAAQIRAAMEBRITISIyYXGBwf/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAGBEBAAMBAAAAAAAAAAAAAAAAAQACETL/2gAMAwEAAhEDEQA/ADRlqEtYAxLQKAO12eqT+1fsKYV1GVli4pCt3KDB5+azCu2+68ncFIn7S+lszaXkFiSeNMk+qm1wcjr0T//Z"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-cyan-700/40 to-cyan-900/70" />
@@ -63,12 +65,14 @@ export default function Hero() {
         <div className="relative hidden md:block">
           <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/20">
             <Image
-              src="/technician_main.jpg"
+              src="/technician_main.webp"
               alt="فني تكييف من تقنية النسيم"
               fill
-              priority
+              loading="lazy"
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgQH/8QAJRAAAgIBAgQHAAAAAAAAAAAAAQIDEQUABBIxQWEGEyEicYGh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAZEQACAwEAAAAAAAAAAAAAAAAAAQISIQP/2gAMAwEAAhEDEQA/AIYcvtIM6suz86dkdmjUiuINfeut/WkWIybZHIszTmRQpNVQHqKrtz1mb7hXhCsPal8IrlelPg6VNxHOqMYtzBwmN7slT0+LH7qs+NFgVOz0/9k="
             />
           </div>
           <div className="absolute -bottom-6 -right-6 bg-white text-slate-800 rounded-2xl p-4 shadow-xl flex items-center gap-3">
