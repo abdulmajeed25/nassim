@@ -102,16 +102,16 @@ Modern evergreen browsers. Arabic RTL tested at desktop (1366×900) and mobile (
 
 | Category | Baseline | After perf pass | Target |
 | --- | --- | --- | --- |
-| Performance | 63 → 77 | 80–89 (bimodal, often 88+) | ≥ 85 |
+| Performance | 63 → 77 | 82–90 (bimodal: ~80% at 82, ~20% at 89–90) | ≥ 90 (not met locally; production should clear) |
 | Accessibility | 95 | **100** | 100 |
 | Best Practices | 100 | **100** | 100 |
 | SEO | 100 | **100** | 100 |
 
-Variance in Performance comes from `python3 -m http.server` (single-threaded, no compression, no cache headers). Production behind Hostinger LiteSpeed with HTTP/2 + brotli + the `.htaccess` Expires headers will be substantially faster.
+Variance in Performance comes from `python3 -m http.server` (single-threaded, no compression, no cache headers) plus Lighthouse's bimodal slow-4G simulation. Observed (unthrottled) values during the audit: **LCP 104 ms, FCP 104 ms** — the H1 paints essentially instantly under real conditions. Production behind Hostinger LiteSpeed with HTTP/2 + brotli + the `.htaccess` Expires headers should clear ≥ 90 reliably.
 
 ### Performance-pass changes
 
-- **Hero image self-hosted.** Was external Unsplash CDN (361 KB JPG, no priority hints). Now `public/images/hero.{jpg,webp}` (74 KB / 41 KB at 1366 px wide), used via `next/image` with `priority`, `fetchPriority="high"`, and a base64 blurDataURL placeholder. Decorative opacity-15 background, so aggressive compression is invisible.
+- **Hero image self-hosted.** Was external Unsplash CDN (361 KB JPG, no priority hints). Now `public/images/hero.{jpg,webp,avif}` (74 / 21 / 18 KB at 960 px wide), referenced via a Tailwind `md:bg-[url('/images/hero.webp')]` class — i.e., the CSS rule lives inside an `@media (min-width: 768px)` block, so mobile viewports never fetch the decorative hero (mission audit: `largest-contentful-paint`). Desktop visual preserved exactly.
 - **Technician image optimized + lazy-loaded.** `public/technician_main.{jpg,webp}` re-encoded to 800×800 (54 KB / 33 KB, was 353 KB). `loading="lazy"` since it's hidden on mobile (`hidden md:block`) and not in the LCP path.
 - **Fonts trimmed.** Removed Tajawal entirely (unused). Cairo reduced from `arabic+latin × 4 weights` to `arabic × 3 weights` (400 / 700 / 800). Preloaded woff2 count: **8 → 1**.
 - **Browserslist pinned** to chrome/firefox/edge ≥ 100 and safari ≥ 15, dropping ~43 KiB of legacy-browser polyfills from the client bundle.
