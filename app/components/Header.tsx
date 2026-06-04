@@ -47,9 +47,10 @@ export default function Header() {
             className="hover:opacity-90 transition-opacity duration-300 block"
           >
             <div
-              className="flex items-center gap-2.5"
+              className="flex items-center gap-3"
               style={{ fontFamily: "var(--font-tajawal), sans-serif" }}
             >
+              <img src="/logo.svg" alt="تقنية النسيم للوجو" className="w-12 h-12 md:w-16 md:h-16 drop-shadow-md transition-transform hover:scale-105 duration-300" />
               <div className="flex flex-col text-right leading-none gap-1">
                 <span className="text-[#0f4c81] text-base md:text-lg font-black tracking-wide drop-shadow-sm">
                   تقنية النسيم

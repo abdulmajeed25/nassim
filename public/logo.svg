@@ -1,0 +1,78 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+  <!-- Outer light-blue/cyan thin circle -->
+  <circle cx="100" cy="100" r="82" stroke="#00adef" stroke-width="4.5" fill="none" />
+  
+  <!-- Left Side: Snowflake (Tebreed) in Light Blue -->
+  <g transform="translate(68, 76) scale(0.65)" stroke="#00adef" stroke-width="3.5" stroke-linecap="round">
+    <!-- 6 main branches -->
+    <path d="M 0 0 L 0 -24" />
+    <path d="M 0 0 L 0 24" />
+    <path d="M 0 0 L -20.78 -12" />
+    <path d="M 0 0 L 20.78 12" />
+    <path d="M 0 0 L -20.78 12" />
+    <path d="M 0 0 L 20.78 -12" />
+    
+    <!-- Top branch prongs -->
+    <path d="M -5 -14 L 0 -19 L 5 -14" fill="none" />
+    <path d="M -3 -7 L 0 -11 L 3 -7" fill="none" />
+    
+    <!-- Bottom branch prongs -->
+    <path d="M -5 14 L 0 19 L 5 14" fill="none" />
+    <path d="M -3 7 L 0 11 L 3 7" fill="none" />
+    
+    <!-- Top-Left branch prongs -->
+    <g transform="rotate(-60)">
+      <path d="M -5 -14 L 0 -19 L 5 -14" fill="none" />
+      <path d="M -3 -7 L 0 -11 L 3 -7" fill="none" />
+    </g>
+    
+    <!-- Bottom-Right branch prongs -->
+    <g transform="rotate(120)">
+      <path d="M -5 -14 L 0 -19 L 5 -14" fill="none" />
+      <path d="M -3 -7 L 0 -11 L 3 -7" fill="none" />
+    </g>
+    
+    <!-- Bottom-Left branch prongs -->
+    <g transform="rotate(60)">
+      <path d="M -5 -14 L 0 -19 L 5 -14" fill="none" />
+      <path d="M -3 -7 L 0 -11 L 3 -7" fill="none" />
+    </g>
+    
+    <!-- Top-Right branch prongs -->
+    <g transform="rotate(-120)">
+      <path d="M -5 -14 L 0 -19 L 5 -14" fill="none" />
+      <path d="M -3 -7 L 0 -11 L 3 -7" fill="none" />
+    </g>
+    
+    <!-- Center ring -->
+    <circle cx="0" cy="0" r="3.5" fill="white" stroke="#00adef" stroke-width="2.5" />
+  </g>
+  
+  <!-- Right Side: Palm Leaf (Naseem Breeze) in Light Blue -->
+  <g transform="translate(132, 85) rotate(-38) scale(0.65)" stroke="#00adef" stroke-width="3.5" stroke-linecap="round" fill="none">
+    <!-- Main stem -->
+    <path d="M -15 35 Q 10 15, 20 -25" stroke-width="4" />
+    
+    <!-- Left side leaflets -->
+    <path d="M -6 25 Q -18 18, -25 15" />
+    <path d="M -1 15 Q -15 8, -24 3" />
+    <path d="M 4 5 Q -10 -5, -20 -12" />
+    <path d="M 9 -5 Q -5 -15, -14 -22" />
+    <path d="M 13 -15 Q 2 -22, -6 -28" />
+    
+    <!-- Right side leaflets -->
+    <path d="M -4 27 Q 8 20, 15 17" />
+    <path d="M 1 17 Q 15 10, 22 5" />
+    <path d="M 6 7 Q 20 -3, 26 -10" />
+    <path d="M 11 -3 Q 22 -13, 27 -22" />
+  </g>
+  
+  <!-- Center: Gorgeous Calligraphic stylized English letter 'N' in Dark Blue -->
+  <g stroke="#004b87" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Left Leg of N curving left following the circle, looping at the top -->
+    <path d="M 58 135 C 44 95, 52 55, 84 45 C 98 40, 114 36, 122 25" />
+    
+    <!-- Diagonal and Right Leg of N -->
+    <path d="M 90 48 C 112 55, 88 125, 115 135 C 130 140, 146 125, 142 85" />
+  </g>
+</svg>
