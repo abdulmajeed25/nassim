@@ -5,21 +5,21 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "800"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
 const notoArabic = Noto_Sans_Arabic({
   variable: "--font-noto-arabic",
   subsets: ["arabic"],
-  weight: ["300", "400", "500", "700", "800"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
 const tajawal = Tajawal({
   variable: "--font-tajawal",
   subsets: ["arabic"],
-  weight: ["500", "700", "800"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
