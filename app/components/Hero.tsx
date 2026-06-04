@@ -4,75 +4,134 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative bg-gradient-to-br from-cyan-700 via-cyan-800 to-cyan-900 text-white overflow-hidden"
+      className="relative bg-slate-900 min-h-[85vh] flex items-center overflow-hidden"
     >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center md:bg-[url('/images/hero.webp')]"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-cyan-700/40 to-cyan-900/70" />
-      <div className="relative container mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
-        <div className="text-center md:text-right">
-          <span className="inline-block bg-white/10 border border-white/20 rounded-full px-4 py-1 text-sm font-medium mb-6">
-            خدمة متاحة الآن في القصيم
-          </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg mb-6">
-            برودة تدوم..
-            <br />
-            وصيانة تثق بها.
-          </h1>
-          <p className="text-lg md:text-xl font-light text-cyan-100 mb-8 max-w-2xl">
-            نقدم لك تجربة للتبريد والتكييف بمواصفات عالمية. عمالة مختصة، قطع
-            غيار أصلية، وضمان حقيقي يمنحك راحة البال التامة.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-            <a
-              href="#booking"
-              className="bg-white text-cyan-700 font-bold text-lg py-3.5 px-8 rounded-full shadow-xl hover:bg-slate-100 transform hover:scale-105 transition-all duration-300"
-            >
-              اطلب الخدمة الآن
-            </a>
-            <a
-              href="#services"
-              className="border-2 border-white text-white font-bold text-lg py-3.5 px-8 rounded-full hover:bg-white hover:text-cyan-700 transition-all duration-300"
-            >
-              استكشف خدماتنا
-            </a>
-          </div>
-          <div className="flex items-center gap-4 mt-10 justify-center md:justify-start">
-            <div className="flex text-amber-300 text-2xl">
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/images/hero.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-30"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+      </div>
+      <div className="container mx-auto px-6 relative z-10 pt-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-right space-y-8">
+            <div className="inline-flex items-center gap-2 bg-cyan-900/50 border border-cyan-700/50 rounded-full px-4 py-1.5 text-cyan-300 text-sm font-medium backdrop-blur-sm animate-fade-in-up">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
+              </span>
+              خدمة متاحة الآن في القصيم
             </div>
-            <div>
-              <div className="font-bold text-lg">+500 عميل</div>
-              <div className="text-sm text-cyan-100">وثقوا بنا هذا الشهر</div>
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.15] tracking-tight">
+              برودة تدوم..
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                وصيانة تثق بها.
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed font-light">
+              نقدم لك تجربة للتبريد والتكييف بمواصفات عالمية. عمالة مختصة، قطع
+              غيار أصلية، وضمان حقيقي يمنحك راحة البال التامة.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a
+                href="#booking"
+                className="group bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold text-lg py-4 px-10 rounded-full shadow-[0_10px_20px_rgba(6,182,212,0.3)] hover:shadow-[0_15px_30px_rgba(6,182,212,0.5)] transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3"
+              >
+                <span>اطلب الخدمة الآن</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 group-hover:translate-y-1 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#services"
+                className="bg-slate-800/50 hover:bg-slate-800 text-white font-bold text-lg py-4 px-10 rounded-full border border-slate-700 hover:border-slate-500 backdrop-blur-sm transition-all duration-300 text-center"
+              >
+                استكشف خدماتنا
+              </a>
+            </div>
+            <div className="pt-8 flex items-center gap-6 border-t border-slate-800/50 mt-8">
+              <div>
+                <div className="flex -space-x-3 rtl:space-x-reverse mb-2">
+                  {[0, 1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-700 flex items-center justify-center text-slate-400"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex gap-1">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <span key={i} className="text-yellow-500 text-sm">
+                      ★
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="text-slate-400 text-sm leading-tight">
+                <strong className="text-white block text-lg font-bold">
+                  +500 عميل
+                </strong>
+                وثقوا بنا هذا الشهر
+              </div>
             </div>
           </div>
-        </div>
-        <div className="relative hidden md:block">
-          <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/20">
-            <Image
-              src="/technician_main.webp"
-              alt="فني تكييف من تقنية النسيم"
-              fill
-              loading="lazy"
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgQH/8QAJRAAAgIBAgQHAAAAAAAAAAAAAQIDEQUABBIxQWEGEyEicYGh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAZEQACAwEAAAAAAAAAAAAAAAAAAQISIQP/2gAMAwEAAhEDEQA/AIYcvtIM6suz86dkdmjUiuINfeut/WkWIybZHIszTmRQpNVQHqKrtz1mb7hXhCsPal8IrlelPg6VNxHOqMYtzBwmN7slT0+LH7qs+NFgVOz0/9k="
-            />
-          </div>
-          <div className="absolute -bottom-6 -right-6 bg-white text-slate-800 rounded-2xl p-4 shadow-xl flex items-center gap-3">
-            <div className="bg-emerald-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold text-xl">
-              ✓
-            </div>
-            <div>
-              <div className="font-bold text-sm">ضمان الجودة 100%</div>
-              <div className="text-xs text-slate-500">فحص شامل ودقيق</div>
+          <div className="hidden lg:block relative">
+            <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur-[100px] opacity-20 animate-pulse" />
+            <div className="relative rounded-[3rem] overflow-hidden border border-slate-700/50 shadow-2xl bg-slate-800/50 backdrop-blur-xl p-4 rotate-3 hover:rotate-0 transition-transform duration-700">
+              <div className="relative w-full h-[500px] rounded-[2.5rem] overflow-hidden">
+                <Image
+                  src="/technician_main.webp"
+                  alt="فني تكييف من تقنية النسيم"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute bottom-12 right-12 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce-slow max-w-xs">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xl font-bold">
+                  ✓
+                </div>
+                <div>
+                  <p className="font-bold text-slate-900 text-sm">
+                    ضمان الجودة 100%
+                  </p>
+                  <p className="text-xs text-slate-500">فحص شامل ودقيق</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
