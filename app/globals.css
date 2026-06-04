@@ -4,7 +4,6 @@
   --color-background: #ffffff;
   --color-foreground: #1f2937;
   --font-sans: var(--font-cairo);
-  --font-display: var(--font-tajawal);
 }
 
 html {
