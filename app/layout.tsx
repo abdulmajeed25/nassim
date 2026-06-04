@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
+import { Inter, Noto_Sans_Arabic, Tajawal } from "next/font/google";
 import "./globals.css";
 
-const cairo = Cairo({
-  variable: "--font-cairo",
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "800"],
+  display: "swap",
+});
+
+const notoArabic = Noto_Sans_Arabic({
+  variable: "--font-noto-arabic",
   subsets: ["arabic"],
-  weight: ["400", "700", "800"],
+  weight: ["300", "400", "500", "700", "800"],
+  display: "swap",
+});
+
+const tajawal = Tajawal({
+  variable: "--font-tajawal",
+  subsets: ["arabic"],
+  weight: ["500", "700", "800"],
   display: "swap",
 });
 
@@ -103,7 +117,7 @@ export default function RootLayout({
     <html
       lang="ar"
       dir="rtl"
-      className={`${cairo.variable} antialiased`}
+      className={`${inter.variable} ${notoArabic.variable} ${tajawal.variable} antialiased`}
     >
       <body className="font-sans bg-white text-slate-800">
         {children}
