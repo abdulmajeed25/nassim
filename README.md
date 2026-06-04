@@ -95,6 +95,25 @@ Modern evergreen browsers. Arabic RTL tested at desktop (1366×900) and mobile (
 - Build: `npm run build` → success, single static route
 - Headings: 1 H1, 4 H2, 15 H3 — exact match to the live site's structure
 - Line-overlap vs live site body text: 63/63 = 100%
-- Local Lighthouse (Chromium headless): **SEO 100, Best-Practices 100, Accessibility 95, Performance 63** (LCP driven mainly by the external Unsplash hero — future optimization candidate)
 - All `<img>` use Arabic `alt` (resolves the prior audit's F-007 finding)
 - No JS errors, no failed network requests, no 4xx/5xx in `out/`
+
+### Lighthouse — local headless Chromium against `out/` served by `python3 -m http.server`
+
+| Category | Baseline | After perf pass | Target |
+| --- | --- | --- | --- |
+| Performance | 63 → 77 | 80–89 (bimodal, often 88+) | ≥ 85 |
+| Accessibility | 95 | **100** | 100 |
+| Best Practices | 100 | **100** | 100 |
+| SEO | 100 | **100** | 100 |
+
+Variance in Performance comes from `python3 -m http.server` (single-threaded, no compression, no cache headers). Production behind Hostinger LiteSpeed with HTTP/2 + brotli + the `.htaccess` Expires headers will be substantially faster.
+
+### Performance-pass changes
+
+- **Hero image self-hosted.** Was external Unsplash CDN (361 KB JPG, no priority hints). Now `public/images/hero.{jpg,webp}` (74 KB / 41 KB at 1366 px wide), used via `next/image` with `priority`, `fetchPriority="high"`, and a base64 blurDataURL placeholder. Decorative opacity-15 background, so aggressive compression is invisible.
+- **Technician image optimized + lazy-loaded.** `public/technician_main.{jpg,webp}` re-encoded to 800×800 (54 KB / 33 KB, was 353 KB). `loading="lazy"` since it's hidden on mobile (`hidden md:block`) and not in the LCP path.
+- **Fonts trimmed.** Removed Tajawal entirely (unused). Cairo reduced from `arabic+latin × 4 weights` to `arabic × 3 weights` (400 / 700 / 800). Preloaded woff2 count: **8 → 1**.
+- **Browserslist pinned** to chrome/firefox/edge ≥ 100 and safari ≥ 15, dropping ~43 KiB of legacy-browser polyfills from the client bundle.
+- **`.htaccess` Expires + DEFLATE** blocks added for LiteSpeed: 1-year cache for images/fonts, 1-month for css/js, gzip compression for html/css/js/json/svg. Redirect logic untouched.
+- **Color contrast.** Header subtitle `TAQNIA AL-NASEEM` shifted from `text-cyan-600` to `text-cyan-800` (the single failing element flagged by Lighthouse color-contrast).
