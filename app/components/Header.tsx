@@ -47,7 +47,7 @@ export default function Header() {
             className="hover:opacity-90 transition-opacity duration-300 block"
           >
             <div
-              className="flex flex-col items-center md:items-start gap-2"
+              className="flex flex-col items-center md:items-start gap-1"
               style={{ fontFamily: "var(--font-tajawal), sans-serif" }}
             >
               <img
@@ -55,7 +55,7 @@ export default function Header() {
                 alt="شعار تقنية النسيم"
                 className="w-12 h-12 md:w-14 md:h-14 object-contain rounded-full shadow-sm border border-slate-100 bg-white self-center md:self-start"
               />
-              <div className="flex flex-col text-center md:text-right leading-none gap-1">
+              <div className="flex flex-col text-center md:text-right leading-none gap-0.5">
                 <span className="text-[#0f4c81] text-base md:text-lg font-black tracking-wide drop-shadow-sm">
                   تقنية النسيم
                 </span>
