@@ -15,7 +15,7 @@ export default function Header() {
                 <span className="text-[#0f4c81] text-base md:text-lg font-black tracking-wide drop-shadow-sm">
                   تقنية النسيم
                 </span>
-                <span className="text-[#2596be] text-[10px] md:text-[11px] font-black tracking-[0.15em] uppercase">
+                <span className="text-[#0e7490] text-[10px] md:text-[11px] font-black tracking-[0.15em] uppercase">
                   Taqnia Al-Naseem
                 </span>
                 <span className="text-[#0f4c81] text-[9px] md:text-[10px] font-extrabold tracking-widest bg-[#f4f9fc] px-2 py-0.5 rounded-full border border-blue-100/50 self-start mt-0.5">
