@@ -6,19 +6,28 @@ export default function Hero() {
       id="hero"
       className="relative bg-gradient-to-br from-cyan-700 via-cyan-800 to-cyan-900 text-white overflow-hidden"
     >
-      <div className="absolute inset-0 opacity-15">
-        <Image
-          src="/images/hero.webp"
-          alt="صيانة وتكييف"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAALABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQQG/8QAIxAAAgEDAgcBAAAAAAAAAAAAAQIRAAMEBRITISIyYXGBwf/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAGBEBAAMBAAAAAAAAAAAAAAAAAQACETL/2gAMAwEAAhEDEQA/ADRlqEtYAxLQKAO12eqT+1fsKYV1GVli4pCt3KDB5+azCu2+68ncFIn7S+lszaXkFiSeNMk+qm1wcjr0T//Z"
+      <picture className="absolute inset-0 opacity-15 pointer-events-none">
+        <source
+          media="(min-width: 768px)"
+          srcSet="/images/hero.avif"
+          type="image/avif"
         />
-      </div>
+        <source
+          media="(min-width: 768px)"
+          srcSet="/images/hero.webp"
+          type="image/webp"
+        />
+        <img
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          alt=""
+          aria-hidden="true"
+          width={960}
+          height={641}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       <div className="absolute inset-0 bg-gradient-to-b from-cyan-700/40 to-cyan-900/70" />
       <div className="relative container mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
         <div className="text-center md:text-right">
